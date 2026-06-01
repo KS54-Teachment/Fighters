@@ -6,4 +6,4 @@
   * Uliyana - consultant
   * Mikhail - security specialist
 
-## description - 
+## description - Our team is completing an assignment to undergo industrial training to become specialists.
