@@ -38,7 +38,7 @@ Our team is completing an assignment to undergo industrial training to become sp
 /
 ├──design/
 │   └──asdfg
-├──docs
+├──docs/
 │   └──База знаний цифрового куратора. 20в-о.docx
 │   └──Задание 3 Используя ChatGPT или аналогичный ИИ.docx
 │   └──Задание-4.docx
@@ -46,20 +46,20 @@ Our team is completing an assignment to undergo industrial training to become sp
 │   └──Титульный лист.docx
 │   └──Этап 1 цифровых угроз.docx
 │   └──Этап 6.docx
-├──excel
+├──excel/
 │   └──Задание 2 День 2.xlsx
 │   └──Книга1 (1).xlsx
-├──knowledge-base
+├──knowledge-base/
 │   └──asdfg
-├──materials
+├──materials/
 │   └──asdfgh
-├──presentations
+├──presentations/
 │   └──Бойцы. День 1.pptx
-├──python
+├──python/
 │   └──asdfg
-├──reports
+├──reports/
 │   └──asdf
-├──security
+├──security/
 │   └──asdfg
 └──README.md
 
