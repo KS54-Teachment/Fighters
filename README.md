@@ -50,7 +50,7 @@ Our team is completing an assignment to undergo industrial training to become sp
 │   └──Задание 2 День 2.xlsx
 │   └──Книга1 (1).xlsx
 ├──knowledge-base/
-│   └──asdfg
+│   └──faq.md
 ├──materials/
 │   └──asdfgh
 ├──presentations/
