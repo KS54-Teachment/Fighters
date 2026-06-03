@@ -7,3 +7,9 @@
   * Mikhail - security specialist
 
 ## description - Our team is completing an assignment to undergo industrial training to become specialists.
+
+# tools we work with:
+  * Excel
+  * Word
+  * PowerPoint
+  * Gemini
