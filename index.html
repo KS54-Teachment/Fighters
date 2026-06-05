@@ -1,13 +1,90 @@
-<div class="team-role">Специалист поддержки</div>
-            <p>Помощь гражданам с госуслугами, онлайн-приёмами и цифровой подписью.</p>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Центр цифровой поддержки граждан — помогаем осваивать государственные цифровые сервисы и технологии">
+    <title>Цифровой центр поддержки граждан</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="nav-container">
+        <div class="logo">
+            <i class="fas fa-digital-tiling"></i> Цифровой центр
         </div>
-        <div class="card">
-            <div class="team-avatar"><i class="fas fa-database fa-3x"></i></div>
-            <div class="team-name">Маргарита Шашкова</div>
-            <div class="team-role">Аналитик БЗ</div>
-            <p>Создание базы знаний, документация, сценарии обучения и FAQ.</p>
+        <button class="menu-btn" id="menuBtn" aria-label="Меню"><i class="fas fa-bars"></i></button>
+        <div class="nav-links" id="navLinks">
+            <a href="#about">О проекте</a>
+            <a href="#team">Команда</a>
+            <a href="#knowledge">База знаний</a>
+            <a href="#contacts">Контакты</a>
         </div>
     </div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="badge"><i class="fas fa-circle-check"></i> Готов к открытию</div>
+        <h1>Центр цифровой поддержки граждан</h1>
+        <p>Помогаем уверенно пользоваться госуслугами, электронной подписью и современными цифровыми сервисами. Просто, безопасно, рядом с вами.</p>
+    </div>
+</section>
+
+<!-- О проекте -->
+<section id="about" class="section">
+    <h2 class="section-title">О проекте</h2>
+    <div class="card" style="background: white; margin-top: 1rem;">
+        <p style="font-size: 1.05rem; margin-bottom: 1rem;"><i class="fas fa-bullhorn" style="color: var(--primary); margin-right: 0.5rem;"></i> <strong>Цифровой продукт готов:</strong> Мы объединили работу команды, документацию, базу знаний, GitHub-репозитории и виртуальную инфраструктуру в единую экосистему поддержки.</p>
+        <p>Наш центр создан для того, чтобы каждый гражданин мог получить квалифицированную помощь в освоении государственных цифровых сервисов, электронных обращений, портала «Госуслуги», цифровой подписи и облачных решений. Команда освоила современные инструменты (GitHub, виртуализация, CI/CD подход) и теперь предоставляет устойчивую, масштабируемую поддержку.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem;">
+            <div><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Онлайн‑консультации</div>
+            <div><i class="fas fa-check-circle" style="color: var(--secondary);"></i> База знаний 24/7</div>
+            <div><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Поддержка на всех этапах</div>
+        </div>
+    </div>
+</section>
+
+<!--Команда-->
+
+<selection id="team" class="section">
+
+<div class="card">
+            <div class="team-name">Анастасия Чернова</div>
+            <div class="team-role">Руковадитель</div>
+            <p>Распределение ролей и задач между членами команды</p>
+</div>
+<div class="card">    
+            <div class="team-name">Маргарита Шашкова</div>
+            <div class="team-role">Технический специалист</div>
+            <p>Создание сайта, настройка ПО</p>
+</div>
+<div class="card">      
+            <div class="team-name">Таисия Чудутова</div>
+            <div class="team-role">Документатор</div>
+            <p>Создание базы знаний, документация, сценарии обучения и FAQ.</p>
+</div>
+<div class="card">   
+            <div class="team-name">Ульяна Хордилеско</div>
+            <div class="team-role">Консультант</div>
+            <p>Помощь гражданам с госуслугами, онлайн-приёмами и цифровой подписью.</p>
+</div>
+<div class="card">   
+            <div class="team-name">Михаил Шмаков</div>
+            <div class="team-role">Специалист по безопасности</div>
+            <p>Контроль безопасности</p>
+</div>
+<div class="card">   
+            <div class="team-name">Мулюкова Вероника</div>
+            <div class="team-role">Помошник</div>
+            <p>Создание отчетов, презентаций</p>
+</div>
+
 </section>
 
 <!-- База знаний с поиском и модалками -->
