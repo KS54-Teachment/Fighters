@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Генератор паролей | Надёжные пароли за секунду</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>🔐 Генератор паролей</h1>
+                <p>Создавайте стойкие пароли для любых сервисов</p>
+            </div>
+
+            <div class="password-area">
+                <input type="text" id="passwordField" class="password-field" readonly placeholder="Нажмите «Сгенерировать»">
+                <button id="copyBtn" class="copy-btn" title="Копировать пароль">
+                    📋
+                </button>
+            </div>
+
+            <div class="controls">
+                <div class="length-control">
+                    <label for="lengthSlider">Длина пароля: <span id="lengthValue">16</span></label>
+                    <input type="range" id="lengthSlider" min="4" max="32" value="16">
+                </div>
+
+                <div class="options">
+                    <label class="option">
+                        <input type="checkbox" id="uppercase" checked> A–Z
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" id="lowercase" checked> a–z
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" id="numbers" checked> 0–9
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" id="symbols" checked> !@#$%^&*
+                    </label>
+                </div>
+
+                <button id="generateBtn" class="generate-btn">✨ Сгенерировать</button>
+            </div>
+
+            <div class="strength-meter">
+                <div class="strength-label">Надёжность пароля:</div>
+                <div class="strength-bar">
+                    <div id="strengthFill" class="strength-fill"></div>
+                </div>
+                <div id="strengthText" class="strength-text">—</div>
+            </div>
+
+            <div class="info-note">
+                ⚡ Надёжный пароль содержит не менее 12 символов, включая буквы, цифры и спецсимволы.
+            </div>
+        </div>
+        <footer>
+            <p>Простой генератор паролей — для вашей безопасности</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
