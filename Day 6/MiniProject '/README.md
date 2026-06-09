@@ -37,11 +37,13 @@
 - Храните пароли в менеджере паролей (Bitwarden, KeePass, 1Password)
 
 ##  Структура
+```
 password-generator/
 ├── index.html          # Основной файл приложения
 ├── style.css           # Стили и тема оформления
 ├── script.js           # Логика генерации паролей
 └── README.md           # Описание для GitHub
+```
 ##  Технологии
 
 - Чистый **JavaScript** (ES6+)
