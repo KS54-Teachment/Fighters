@@ -1,0 +1,182 @@
+using System;
+using System.Text;
+using System.Windows.Forms;
+
+namespace PasswordGenerator
+{
+    public partial class Form1 : Form
+    {
+        // Случайный генератор
+        private Random random = new Random();
+
+        public Form1()
+        {
+            InitializeComponent();
+            InitializeCustomComponents();
+        }
+
+        private void InitializeCustomComponents()
+        {
+            // Настройка TrackBar
+            trackBarLength.Scroll += TrackBarLength_Scroll;
+            
+            // Привязка обработчиков
+            btnGenerate.Click += BtnGenerate_Click;
+            btnCopy.Click += BtnCopy_Click;
+            
+            // Генерируем первый пароль
+            btnGenerate.PerformClick();
+        }
+
+        // Обработчик изменения длины пароля
+        private void TrackBarLength_Scroll(object sender, EventArgs e)
+        {
+            lblLengthValue.Text = trackBarLength.Value.ToString();
+            btnGenerate.PerformClick();
+        }
+
+        // Генерация пароля
+        private void BtnGenerate_Click(object sender, EventArgs e)
+        {
+            // Проверяем, что выбран хотя бы один тип символов
+            if (!chkLetters.Checked && !chkDigits.Checked && !chkSymbols.Checked)
+            {
+                MessageBox.Show("Выберите хотя бы один тип символов!", 
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string password = GeneratePassword(
+                trackBarLength.Value,
+                chkLetters.Checked,
+                chkDigits.Checked,
+                chkSymbols.Checked
+            );
+
+            txtPassword.Text = password;
+            EvaluatePasswordStrength(password);
+        }
+
+        // Логика генерации пароля
+        private string GeneratePassword(int length, bool useLetters, bool useDigits, bool useSymbols)
+        {
+            // Наборы символов
+            string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            string digits = "0123456789";
+            string symbols = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+
+            // Собираем доступные символы
+            StringBuilder validChars = new StringBuilder();
+            
+            if (useLetters) validChars.Append(letters);
+            if (useDigits) validChars.Append(digits);
+            if (useSymbols) validChars.Append(symbols);
+
+            if (validChars.Length == 0) return "";
+
+            // Генерация пароля
+            StringBuilder password = new StringBuilder();
+            
+            for (int i = 0; i < length; i++)
+            {
+                int index = random.Next(validChars.Length);
+                password.Append(validChars[index]);
+            }
+
+            return password.ToString();
+        }
+
+        // Оценка надежности пароля
+        private void EvaluatePasswordStrength(string password)
+        {
+            int score = 0;
+            string feedback = "";
+
+            // Критерии оценки (максимум 4 балла)
+            
+            // 1. Длина пароля
+            if (password.Length >= 12) score += 2;
+            else if (password.Length >= 8) score += 1;
+            
+            // 2. Наличие разных типов символов
+            bool hasUpper = false, hasLower = false, hasDigit = false, hasSymbol = false;
+            
+            foreach (char c in password)
+            {
+                if (char.IsUpper(c)) hasUpper = true;
+                else if (char.IsLower(c)) hasLower = true;
+                else if (char.IsDigit(c)) hasDigit = true;
+                else hasSymbol = true;
+            }
+            
+            // Бонус за разнообразие
+            if (hasUpper && hasLower) score++;
+            if (hasDigit) score++;
+            if (hasSymbol) score++;
+            
+            // Ограничиваем максимум 4 баллами
+            score = Math.Min(score, 4);
+            
+            // Определяем уровень надежности
+            switch (score)
+            {
+                case 0:
+                    feedback = "Очень слабый";
+                    progressBarStrength.Value = 1;
+                    progressBarStrength.ForeColor = System.Drawing.Color.Red;
+                    break;
+                case 1:
+                    feedback = "Слабый";
+                    progressBarStrength.Value = 1;
+                    progressBarStrength.ForeColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 2:
+                    feedback = "Средний";
+                    progressBarStrength.Value = 2;
+                    progressBarStrength.ForeColor = System.Drawing.Color.Orange;
+                    break;
+                case 3:
+                    feedback = "Хороший";
+                    progressBarStrength.Value = 3;
+                    progressBarStrength.ForeColor = System.Drawing.Color.YellowGreen;
+                    break;
+                case 4:
+                    feedback = "Отличный!";
+                    progressBarStrength.Value = 4;
+                    progressBarStrength.ForeColor = System.Drawing.Color.Green;
+                    break;
+            }
+            
+            lblStrength.Text = $"Надежность: {feedback} (оценка: {score}/4)";
+        }
+
+        // Копирование в буфер обмена
+        private void BtnCopy_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPassword.Text))
+            {
+                Clipboard.SetText(txtPassword.Text);
+                
+                // Визуальное подтверждение
+                string originalText = btnCopy.Text;
+                btnCopy.Text = "✅ Скопировано!";
+                btnCopy.Enabled = false;
+                
+                Timer timer = new Timer();
+                timer.Interval = 2000; // 2 секунды
+                timer.Tick += (s, ev) =>
+                {
+                    btnCopy.Text = originalText;
+                    btnCopy.Enabled = true;
+                    timer.Stop();
+                };
+                timer.Start();
+            }
+            else
+            {
+                MessageBox.Show("Нет пароля для копирования!", 
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+    }
+}

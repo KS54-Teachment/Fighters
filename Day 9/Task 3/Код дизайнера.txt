@@ -1,0 +1,44 @@
+partial class Form1
+{
+    private System.ComponentModel.IContainer components = null;
+    private TrackBar trackBarLength;
+    private Label lblLengthValue;
+    private CheckBox chkLetters;
+    private CheckBox chkDigits;
+    private CheckBox chkSymbols;
+    private Button btnGenerate;
+    private TextBox txtPassword;
+    private Button btnCopy;
+    private Label lblStrength;
+    private ProgressBar progressBarStrength;
+
+    private void InitializeComponent()
+    {
+        // Настройка формы
+        this.Text = "Генератор паролей";
+        this.Size = new System.Drawing.Size(500, 400);
+        this.StartPosition = FormStartPosition.CenterScreen;
+        
+        // Создаем и настраиваем все элементы...
+        // (Visual Studio создаст это автоматически)
+        
+        // Пример настройки TextBox для пароля
+        txtPassword = new TextBox();
+        txtPassword.Location = new System.Drawing.Point(50, 200);
+        txtPassword.Size = new System.Drawing.Size(300, 30);
+        txtPassword.ReadOnly = true;
+        txtPassword.Font = new Font("Consolas", 12);
+        
+        // Добавляем элементы на форму
+        this.Controls.Add(trackBarLength);
+        this.Controls.Add(lblLengthValue);
+        this.Controls.Add(chkLetters);
+        this.Controls.Add(chkDigits);
+        this.Controls.Add(chkSymbols);
+        this.Controls.Add(btnGenerate);
+        this.Controls.Add(txtPassword);
+        this.Controls.Add(btnCopy);
+        this.Controls.Add(lblStrength);
+        this.Controls.Add(progressBarStrength);
+    }
+}
